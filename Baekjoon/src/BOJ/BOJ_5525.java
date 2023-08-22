@@ -1,39 +1,28 @@
 package BOJ;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class BOJ_5525 {
-	public static void main(String[] args) throws IOException{
-		BufferedReader 	br =  new BufferedReader(new InputStreamReader(System.in));
-		int n = Integer.parseInt(br.readLine());
-		int m = Integer.parseInt(br.readLine());
-		String st;
-		int count = 0;
-		st = br.readLine();
-		for(int i = 0;i<m;i++) {
-			if(i==m-IOI(n).length()) {
-				break;
-			}
-			else if(st.substring(i, i+(IOI(n).length())).equals(IOI(n))) {
-				count++;
-			}
-		}
-		System.out.println(count);
+	public static void main(String[] args) {
+		int n1 = 1;
+		int m1 = 13;
+		String s1 = "OOIOIOIOIIOII";
+		System.out.println(solution(n1, m1, s1));
 
+		int n2 = 2;
+		int m2 = 13;
+		String s2 = "OOIOIOIOIIOII";
+		System.out.println(solution(n2, m2, s2));
 	}
-	static String IOI(int n) {
-		String st = "OI";
-		String str = "IOI";
-		if(n==1) {
-			return str;
-		}else {
-			for(int i = 0;i<n-1;i++) {
-				str+=st;
+	public static int solution(int n, int m, String s) {
+		int answer = 0;
+		char[] c = s.toCharArray();
+		int[] arr = new int[m];
+		for(int i = 1;i<m-1;i++) {
+			if(c[i] == 'O' && c[i+1]=='I') {
+				arr[i+1] = arr[i-1]+1;
+				if(arr[i+1]>= n && c[i-2*n+1] == 'I') answer++;
 			}
 		}
-		return str;
+		return answer;
 	}
 
 }
