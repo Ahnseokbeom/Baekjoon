@@ -7,47 +7,44 @@ import java.util.StringTokenizer;
 
 public class BOJ_1244 {
 	static int[] arr;
+	static int n;
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int n = Integer.parseInt(br.readLine());
+		n = Integer.parseInt(br.readLine());
 		arr = new int[n+1];
+
 		StringTokenizer st = new StringTokenizer(br.readLine()," ");
-		for(int i = 1;i<=n;i++) {
-			arr[i] = Integer.parseInt(st.nextToken());
-		}
-		int stu = Integer.parseInt(br.readLine());
-		for(int i = 0;i<stu;i++) {
+
+		for(int i = 1;i<=n;i++)  arr[i] = Integer.parseInt(st.nextToken());
+
+		int num = Integer.parseInt(br.readLine());
+
+		for(int i = 0;i<num;i++) {
 			st = new StringTokenizer(br.readLine()," ");
 			int x = Integer.parseInt(st.nextToken());
 			int y = Integer.parseInt(st.nextToken());
-			if(x==1) boy(x,y);
-			else girl(x,y);
-		}
-		for(int i = 1;i<=n;i++) System.out.print(arr[i]+" ");
-
-	}
-	public static void boy(int x, int y) {
-		while(y <= arr.length) {
-			change(y);
-			y *= 2;
-		}
-	}
-	public static void girl(int x, int y) {
-		int idx = 1;
-		change(y);
-		while(true) {
-			int left = y-idx;
-			int right = y+idx;
-			if(left <= 0 || right > arr.length || arr[left]!= arr[right]) break;
-			if(arr[left]== arr[right]) {
-				change(left);
-				change(right);
+			if(x==1) boy(y);
+			else {
+				arr[y] = 1 - arr[y];
+				girl(y);
 			}
-			idx++;
+		}
+		for(int i = 1;i<=n;i++) {
+			System.out.print(String.valueOf(arr[i])+" ");
+			if(i%20==0) System.out.println();
 		}
 	}
-	public static void change(int n) {
-		if(arr[n]== 1) arr[n] = 0;
-		else arr[n] = 1;
+	public static void boy(int y) {
+		for(int i = y;i<=n;i+=y) {
+			arr[i] = 1 - arr[i];
+		}
+	}
+	public static void girl(int y) {
+		for(int i = 1;y-i > 0 && y+i<=n;i++) {
+			if(arr[y-i]==arr[y+i]) {
+				arr[y-i] = 1 - arr[y-i];
+				arr[y+i] = 1 - arr[y+i];
+			}else break;
+		}
 	}
 }
