@@ -9,8 +9,8 @@ import java.util.StringTokenizer;
 
 public class BOJ_1012 {
 	static int n,m,k;
-	static int[][] bug;
-	static boolean[][] visit;
+	static int[][] arr;
+	static boolean[][] check;
 	static int[] dx = {0,-1,0,1};
 	static int[] dy = {1,0,-1,0};
 	public static void main(String[] args) throws IOException{
@@ -23,22 +23,26 @@ public class BOJ_1012 {
 			m = Integer.parseInt(st.nextToken());
 			n = Integer.parseInt(st.nextToken());
 			k = Integer.parseInt(st.nextToken());
-			bug = new int[m][n];
-			visit = new boolean[m][n];
+			arr = new int[m][n];
+			check = new boolean[m][n];
 			count = 0;
 
 			for(int j = 0;j<k;j++) {
 				st = new StringTokenizer(br.readLine()," ");
 				int p1 = Integer.parseInt(st.nextToken());
 				int p2 = Integer.parseInt(st.nextToken());
-				bug[p1][p2] = 1;
+				arr[p1][p2] = 1;
 			}
 			for(int a = 0;a<m;a++) {
 				for(int b = 0;b<n;b++) {
-					if(bug[a][b] == 1 && !visit[a][b]) {
+					if(arr[a][b] == 1 && !check[a][b]) {
 						bfs(a,b);
 						count++;
 					}
+//					if(arr[a][b] == 1 && !check[a][b]) {
+//						dfs(a,b);
+//						count++;
+//					}
 				}
 			}
 			System.out.println(count);
@@ -54,19 +58,29 @@ public class BOJ_1012 {
 		while(!q.isEmpty()) {
 			x = q.peek()[0];
 			y = q.peek()[1];
-			visit[x][y] = true;
+			check[x][y] = true;
 			q.poll();
 			for(int i = 0;i<4;i++) {
 				int x1 = x+dx[i];
 				int y1 = y+dy[i];
 				if(x1 >= 0 && y1 >= 0 && x1 < m && y1 < n) {
-					if(!visit[x1][y1] && bug[x1][y1] ==1) {
+					if(!check[x1][y1] && arr[x1][y1] ==1) {
 						q.add(new int[] {x1,y1});
-						visit[x1][y1] = true;
+						check[x1][y1] = true;
 					}
 				}
 			}
 		}
 	}
-
+	public static void dfs(int x, int y) {
+		check[x][y] = true;
+		for(int i = 0;i<4;i++) {
+			int nx = x+dx[i];
+			int ny = y+dy[i];
+			if(nx < 0 || nx >= m || ny < 0 || ny >= n) continue;
+			if(arr[nx][ny]==1 && !check[nx][ny]) {
+				dfs(nx,ny);
+			}
+		}
+	}
 }
