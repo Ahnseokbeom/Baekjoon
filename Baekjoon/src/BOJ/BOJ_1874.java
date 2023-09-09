@@ -11,25 +11,25 @@ public class BOJ_1874 {
 		StringBuilder sb = new StringBuilder();
 		Stack<Integer> stack = new Stack<Integer>();
 		int n = Integer.parseInt(br.readLine());
-
 		int start = 0;
+
+		boolean check = true;
 
 		while(n-- > 0) {
 			int num = Integer.parseInt(br.readLine());
-			if(num > start) {
+			if(start < num) {
 				for(int i = start+1;i<=num;i++) {
 					stack.push(i);
-					sb.append("+").append("\n");
+					sb.append("+\n");
 				}
 				start = num;
 			}else if(stack.peek()!=num) {
-				System.out.println("NO");
-				System.exit(0);
+				check = false;
+				break;
 			}
 			stack.pop();
-			sb.append("-").append("\n");
+			sb.append("-\n");
 		}
-		System.out.println(sb);
+		System.out.println(check?sb:"NO");
 	}
-
 }
