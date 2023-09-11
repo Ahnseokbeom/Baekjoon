@@ -28,7 +28,7 @@ public class BOJ_1303 {
 			for(int j = 0;j<m;j++) {
 				if(!check[i][j]) {
 					sum = 1;
-					dfs(arr[i][j],i,j);
+					dfs(i,j,arr[i][j]);
 					if(arr[i][j]=='W') w+=(sum*sum);
 					else b += (sum*sum);
 				}
@@ -36,16 +36,15 @@ public class BOJ_1303 {
 		}
 		System.out.println(w+" "+b);
 	}
-	public static void dfs(char c,int x, int y) {
+	public static void dfs(int x, int y,char c) {
 		check[x][y] = true;
 		for(int i = 0;i<4;i++) {
 			int nx = x+dx[i];
 			int ny = y+dy[i];
 			if(nx >= n || nx < 0 || ny >= m || ny < 0) continue;
-			if(check[nx][ny]) continue;
-			if(arr[nx][ny] != c) continue;
+			if(check[nx][ny] || arr[nx][ny] != c) continue;
 			sum++;
-			dfs(c,nx,ny);
+			dfs(nx,ny,c);
 		}
 	}
 }
