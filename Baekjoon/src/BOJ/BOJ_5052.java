@@ -34,5 +34,4 @@ public class BOJ_5052 {
 		}
 		return true;
 	}
-
 }
