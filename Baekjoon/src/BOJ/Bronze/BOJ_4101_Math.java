@@ -1,24 +1,16 @@
-package BOJ;
+package BOJ.Bronze;
 
 import java.util.Scanner;
 
-public class BOJ_4101 {
+public class BOJ_4101_Math {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		while(true) {
 			int a = sc.nextInt();
 			int b = sc.nextInt();
-			if(a==0 && b==0) {
-				break;
-			}else {
-				if(a>b) {
-					System.out.println("Yes");
-				}else {
-					System.out.println("No");
-				}
-			}
+			if(a==0 && b==0) break;
+			System.out.println(a>b?"Yes":"No");
 		}
 		sc.close();
 	}
-
 }

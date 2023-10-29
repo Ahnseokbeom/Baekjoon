@@ -1,4 +1,4 @@
-package BOJ;
+package BOJ.Gold;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class BOJ_3584 {
+public class BOJ_3584_Tree {
 	static int[] parent;
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -43,5 +43,4 @@ public class BOJ_3584 {
 			num = parent[num];
 		}
 	}
-
 }

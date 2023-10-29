@@ -1,10 +1,10 @@
-package BOJ;
+package BOJ.Silver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class BOJ_4779 {
+public class BOJ_4779_Recursion {
 	static StringBuilder sb;
 	static int n;
 	public static void main(String[] args) throws IOException{
@@ -18,9 +18,6 @@ public class BOJ_4779 {
 			rec(0,len);
 			System.out.println(sb);
 		}
-
-
-
 	}
 	public static void rec(int start, int size) {
 		if(size==1) return;
@@ -29,5 +26,4 @@ public class BOJ_4779 {
 		rec(start,Size);
 		rec(start+2*Size,Size);
 	}
-
 }

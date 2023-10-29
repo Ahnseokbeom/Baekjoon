@@ -1,8 +1,8 @@
-package BOJ;
+package BOJ.Bronze;
 
 import java.util.Scanner;
 
-public class BOJ_2920 {
+public class BOJ_2920_Implementation {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int[] str = new int[8];
@@ -22,5 +22,4 @@ public class BOJ_2920 {
 		System.out.println(s);
 		sc.close();
 	}
-
 }

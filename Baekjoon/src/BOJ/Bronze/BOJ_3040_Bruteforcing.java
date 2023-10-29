@@ -1,11 +1,11 @@
-package BOJ;
+package BOJ.Bronze;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class BOJ_3040 {
+public class BOJ_3040_Bruteforcing {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int sum = 0;
@@ -28,5 +28,4 @@ public class BOJ_3040 {
 			System.out.println(arr.get(i));
 		}
 	}
-
 }

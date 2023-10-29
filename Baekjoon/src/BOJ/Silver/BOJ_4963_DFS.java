@@ -1,11 +1,11 @@
-package BOJ;
+package BOJ.Silver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BOJ_4963 {
+public class BOJ_4963_DFS {
 	static int[][] arr;
 	static boolean[][] check;
 	static int[] dx = {-1,0,1,-1,1,-1,0,1};
@@ -50,5 +50,4 @@ public class BOJ_4963 {
 			}
 		}
 	}
-
 }

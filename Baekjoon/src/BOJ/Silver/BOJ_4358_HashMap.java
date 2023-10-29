@@ -1,4 +1,4 @@
-package BOJ;
+package BOJ.Silver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class BOJ_4358 {
+public class BOJ_4358_HashMap {
 	public static void main(String[] args) throws IOException{
 		HashMap<String, Integer> map = new HashMap<>();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
