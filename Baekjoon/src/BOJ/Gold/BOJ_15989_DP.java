@@ -9,17 +9,16 @@ public class BOJ_15989_DP {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		int[][] dp = new int[10001][4];
-		dp[1][1] = 1;
-		dp[1][2] = 0;
-		dp[1][3] = 0;
 
-		dp[2][1] = 1;
-		dp[2][2] = 1;
-		dp[2][3] = 0;
+		dp[1][1] = 1; // 1
 
-		dp[3][1] = 1;
-		dp[3][2] = 1;
-		dp[3][3] = 1;
+		dp[2][1] = 1; // 1+1
+		dp[2][2] = 1; // 2
+
+		dp[3][1] = 1; // 1+1+1
+		dp[3][2] = 1; // 2+1
+		dp[3][3] = 1; // 3
+
 		int t = Integer.parseInt(br.readLine());
 		StringBuilder sb = new StringBuilder();
 		while(t-- > 0) {
@@ -31,6 +30,6 @@ public class BOJ_15989_DP {
 			}
 			sb.append(dp[n][1]+dp[n][2]+dp[n][3]+"\n");
 		}
-		System.out.println(sb);
+		System.out.println(sb.toString());
 	}
 }
